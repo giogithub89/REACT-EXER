@@ -2,6 +2,7 @@ import React from "react";
 
 import { Welcome } from './Welcome'
 
+
 const greeting = <Welcome name='Gloria'/>
 
 
