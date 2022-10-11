@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Welcome } from './Welcome'
+import { Counter } from './Counter'
 
-const greeting = <Welcome name='Gloria'/>
+// const greeting = <Welcome name='Gloria'/>
 
 
 
@@ -10,7 +10,7 @@ export class App extends React.Component {
     render() {
     return <div> 
         
-        <strong> {greeting}  </strong>
+        <strong> <Counter/>  </strong>
         
                 
 
