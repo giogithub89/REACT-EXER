@@ -14,3 +14,9 @@ export class Welcome extends React.Component {
     }
 
 }
+
+// class Age  extends React.Component {
+//     render(){
+//         return <p>Is your age {this.props.age} ?</p>
+//     }
+// }
