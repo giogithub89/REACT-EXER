@@ -1,8 +1,8 @@
 
-import './App.css';
+
 import { Hello } from './Hello';
 
-function App() {
+export function App() {
   return (
     <div >
       <Hello />
