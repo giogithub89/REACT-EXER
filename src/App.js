@@ -1,5 +1,5 @@
 import React from 'react'
-import Hello from './Hello'
+import {Hello} from './Hello'
 
 export class App extends React.Components {
  render(){
