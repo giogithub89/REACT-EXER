@@ -2,8 +2,8 @@ import React from "react";
 
 import { Welcome } from './Welcome'
 
-const greeting = <Welcome name='Gloria' age={22} emoji="XD"/>
-const anotherEmoji = "😃"
+const greeting = <Welcome name='Gloria'/>
+
 
 
 export class App extends React.Component {
@@ -11,7 +11,7 @@ export class App extends React.Component {
     return <div> 
         
         <strong> {greeting}  </strong>
-        <strong> This is another Emoji {anotherEmoji}  </strong>
+        
                 
 
     </div>;
