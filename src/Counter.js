@@ -15,15 +15,20 @@ export class Counter extends React.Component{
             })
             },this.props.timer)
     }
-
-   render(){
-    return <div>
-         
-        <h1> Count: {this.state.count}</h1></div>
-   }
-
-   
+    render(){
+        return <div>
+             
+            <h1> <CounterDisplay/> </h1></div>
+       }
     
+}
+class CounterDisplay extends React.Component{
+    render(){
+        return <div>
+             
+            <h1> Count: {this.state.count}</h1></div>
+       }
+
 }
 Counter.defaultProps = {
     initialValue: 59,
