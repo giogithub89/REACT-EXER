@@ -5,34 +5,25 @@ export class Counter extends React.Component{
     state = {
         count: this.props.initialValue,
     }
-
-    constructor(props){
-        super(props)
-        setInterval(() => {
+        handleCounter = ()=> {
             this.setState((state) => {
                 return{
-                    count: state.count - this.props.step}
+                    count: state.count + this.props.step 
+                }
             })
-            },this.props.timer)
-    }
+        }
+   
     render(){
-        return <div>
+        return (<div>
+            <button onClick={this.handleCounter}>Click me</button>
              
-            <h1> <CounterDisplay/> </h1></div>
+            <h1> Le mie medaglie d'oro: {this.state.count} </h1></div>
+            )
        }
-    
 }
-class CounterDisplay extends React.Component{
-    render(){
-        return <div>
-             
-            <h1> Count: {this.state.count}</h1></div>
-       }
 
-}
 Counter.defaultProps = {
-    initialValue: 59,
-    timer: 1000,
+    initialValue: 0,
     step: 1
 
    }
