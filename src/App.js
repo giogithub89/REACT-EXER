@@ -6,6 +6,7 @@ import Login from "./Login";
 function App() {
   return (
     <div className="form">
+        <h1>FunkEnergy Website</h1>
       <Login/>
       
      
