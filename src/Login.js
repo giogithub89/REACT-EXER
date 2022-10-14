@@ -17,16 +17,31 @@ class Login extends React.Component {
     }
     render(){
         return (
-            <div>
-                <Welcome username={this.state.username}/>
-                <div className='field'>
-                <input name="username" value={this.state.username} onChange={this.handleInput}/>
-                <input name="password" type="password" value={this.state.password} onChange={this.handleInput}/>
-                <input name="checked" type="checkbox" value={this.state.checked} onChange={this.handleInput}/>
-                </div>
-        
+          <div>
+            <Welcome username={this.state.username} />
+            <div className="field">
+              <label for="username">Username</label>
+              <input
+                name="username"
+                value={this.state.username}
+                onChange={this.handleInput}
+              />
+              <label for="username">Password</label>
+              <input
+                name="password"
+                type="password"
+                value={this.state.password}
+                onChange={this.handleInput}
+              />
+              <input
+                name="checked"
+                type="checkbox"
+                value={this.state.checked}
+                onChange={this.handleInput}
+              />
             </div>
-          )
+          </div>
+        );
     }
   
 }
