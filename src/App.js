@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Counter } from './Counter'
+import { ClickTracker } from './ClickTracker'
 
 // const greeting = <Welcome name='Gloria'/>
 
@@ -10,7 +10,7 @@ export class App extends React.Component {
     render() {
     return <div> 
         
-        <strong> <Counter/>  </strong>
+        <strong> <ClickTracker/>  </strong>
         
                 
 
