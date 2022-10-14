@@ -9,3 +9,10 @@
     
    
 }
+.field{
+    display: flex;
+    flex-direction: column;
+}
+.field input{
+    margin-bottom: 10px;
+}
