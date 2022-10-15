@@ -12,8 +12,12 @@ class Login extends React.Component {
         const value = event.target.value
         const type = event.target.type
         const checked = event.target.checked
-        this.setState({[name] : type === 'checkbox' ? checked : value })
-
+        
+        this.setState({[name] : type === 'checkbox' ? checked : value }
+        )
+    }
+    componentDidUpdate(){
+      console.log(this.state.password)
     }
     render(){
         return (
@@ -31,6 +35,7 @@ class Login extends React.Component {
                 name="password"
                 type="password"
                 value={this.state.password}
+            
                 onChange={this.handleInput}
               />
               <input
@@ -39,6 +44,8 @@ class Login extends React.Component {
                 value={this.state.checked}
                 onChange={this.handleInput}
               />
+              <button 
+              style={{backgroundColor: this.state.password.length < 8 ? 'red': 'green'}}> Login </button>
             </div>
           </div>
         );
@@ -47,8 +54,6 @@ class Login extends React.Component {
 }
 
 export default Login
-
-
 
 class  Welcome extends React.Component {
   render(){
