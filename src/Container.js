@@ -1,5 +1,5 @@
 import React from 'react'
-import Welcome from './Welcome'
+
 
 
 class Container  extends React.Component {
@@ -11,8 +11,10 @@ class Container  extends React.Component {
 
     }
     return <div style={MyContainer}>Container
-    <Welcome/>
-    </div>
+            <div>{this.props.title}</div>
+           
+    
+        </div>
   }
 }
 

@@ -1,12 +1,19 @@
 import React from 'react'
+import Container from './Container'
+
 
 
 export default class Welcome extends React.Component {
   render() {
     return (
-      <div className='welcome'>Welcome
+      <Container title={'Container Ttile'} >
+        <div>
+         
+        </div>
+        
+        
       
-      </div>
+      </Container>
     )
   }
 }
