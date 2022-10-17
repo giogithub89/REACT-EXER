@@ -11,8 +11,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.welcome{
-  border: 1px dotted red;
-  background-color: aqua;
-  padding: 20px;
-}
+
