@@ -3,17 +3,19 @@ import Container from './Container'
 
 
 
-export default class Welcome extends React.Component {
-  render() {
+export default function Welcome() {
+  
     return (
-      <Container title={'Container Ttile'} >
-        <div>
-         
-        </div>
+        <Container title={'Container Ttile'} >
+          <div>
+           
+          </div>
+          
+          
         
-        
-      
-      </Container>
-    )
-  }
+        </Container>
+      )
+  
 }
+
+
