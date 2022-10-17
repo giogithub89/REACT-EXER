@@ -2,38 +2,52 @@ import React from 'react'
 
 export class TodoList extends React.Component {
   state = {
-    tasks: ["task1", "task2", "task3"],
+    todos: [],
   };
-  inputList = (event) => {
-    const value = event.target.task;
-    this.setState(() => {
-      return {
-        task: value,
-      };
-    });
-    console.log(value);
-  };
-  handleAddTask = () => {
-    const inputNewTask = this.state.task;
+  // inputList = (event) => {
+  //   const value = event.target.task;
+  //   this.setState(() => {
+  //     return {
+  //       task: value,
+  //     };
+  //   });
+  //   console.log(value);
+  // };
+  handleAddTask = (event) => {
+    event.preventDefault();
+    const todo = event.target.elements.todo.value;
     //update the state input field
-    this.setState({ newTask: inputNewTask });
-    this.state.tasks.push(this.state.newTask);
+    //this.setState({ todos: [...this.state.todos, todo] });
+    this.setState((state) => {
+			return {
+				todos: [...state.todos, todo],
+			}
+		})
+    // this.state.tasks.push(this.state.newTask);
   };
 
   render() {
-    const elements = this.props.tasks.map((item) => <li>{item}</li>);
+    //const elements = this.props.tasks.map((item) => <li>{item}</li>);
     return (
       <div>
-        <ul>
+        {/* <ul>
           {elements}
           <input
             name="inputList"
-            value={this.state.task}
-            onChange={this.inputList}
-          />
+            value={this.state.task}onChange={this.inputList}/>
 
           <button onClick={this.handleAddTask}>Add Task</button>
-        </ul>
+        </ul> */}
+
+      <form onSubmit={this.handleAddTask}>
+        <input data-testid="todo-input" name='todo'></input>
+        <button type='submit'>Add Task</button>
+        
+      </form>
+      <ul>
+        {this.state.todos.map((todo, index) => <li key={index}>{todo}</li>)}
+      </ul>
+
       </div>
     );
   }
