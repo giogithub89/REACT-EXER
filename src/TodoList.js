@@ -1,46 +1,42 @@
 import React from 'react'
 
 export class TodoList extends React.Component {
+  state = {
+    tasks: ["task1", "task2", "task3"],
+  };
+  inputList = (event) => {
+    const value = event.target.task;
+    this.setState(() => {
+      return {
+        task: value,
+      };
+    });
+    console.log(value);
+  };
+  handleAddTask = () => {
+    const inputNewTask = this.state.task;
+    //update the state input field
+    this.setState({ newTask: inputNewTask });
+    this.state.tasks.push(this.state.newTask);
+  };
 
-    constructor(props){
-        super(props)
-        this.state = {tasks: ['task1', 'task2', 'task3']}
-    }
+  render() {
+    const elements = this.props.tasks.map((item) => <li>{item}</li>);
+    return (
+      <div>
+        <ul>
+          {elements}
+          <input
+            name="inputList"
+            value={this.state.task}
+            onChange={this.inputList}
+          />
 
-    // state = {
-    //     tasks: ['task1', 'task2', 'task3']
-
-    // }
-    inputList = (event) => {
-        const value = event.target.task
-        this.state({task: value})
-        console.log(value)
-    }
-    handleAddTask = (event)=>{
-        
-        const inputList = this.event.target.task
-        //update the state input field
-        this.setState({ newTask: inputList})
-        this.state.tasks.push(this.state.newTask)
-        
-    }
-  
-
-    render(){
-        const elements = this.props.tasks.map(item => <li>{item}</li>)
-        return (
-            <div>
-                <ul>
-                    {elements}
-                    <input name="inputList" value={this.state.task} onChange={this.inputList}/>
-                    
-                    <button onClick={this.handleAddTask}>Add Task</button>
-                </ul>
-            </div>
-          )
-
-    }
-  
+          <button onClick={this.handleAddTask}>Add Task</button>
+        </ul>
+      </div>
+    );
+  }
 }
 
 // Create a TodoList component that renders a ul tag with a li tag for each item contained in the items state variable. 
