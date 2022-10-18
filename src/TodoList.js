@@ -16,7 +16,15 @@ export class TodoList extends React.Component {
 			}
 		})
   };
-  
+  reset(){
+    this.setState(() => { 
+      console.log('reset')
+      return{
+        todos:[]
+      }
+
+    } )
+  }
 
   render() {
     return (
@@ -26,7 +34,9 @@ export class TodoList extends React.Component {
         <input data-testid="todo-input" name='todo'></input>
         <button type='submit'>Add Task</button>
         
+        
       </form>
+      <button onClick={this.reset}>Reset</button>
       <ul>
         
         {this.state.todos.map((todo, index) => <li key={index}>{todo}</li>)}
