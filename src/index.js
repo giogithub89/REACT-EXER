@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Welcome from './Welcome';
+
 import './index.css';
+import Sum from './Welcome';
 
 
 
@@ -9,7 +10,7 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Welcome/>
+    <Sum/>
     
   </React.StrictMode>
 );

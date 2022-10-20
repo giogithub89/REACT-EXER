@@ -1,17 +1,17 @@
-import React from 'react'
 
 
 
 
-export default function Welcome() {
-  const a = 10;
-  const b = 22;
+
+export default function Sum(numbers) {
+  
+  numbers = [10,24]
   
   
     return (
         
           <div>
-            <h3> The sum is: {(a+b) }</h3>
+            <h3> The sum is: {numbers.reduce((a,b)=> a = a+b) }</h3>
            
           </div>
           
