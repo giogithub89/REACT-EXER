@@ -12,6 +12,7 @@ export default function Sum(numbers) {
         
           <div>
             <h3> The sum is: {numbers.reduce((a,b)=> a = a+b) }</h3>
+            
            
           </div>
           
