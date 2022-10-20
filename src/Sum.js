@@ -3,15 +3,15 @@
 
 
 
-export default function Sum(numbers) {
+export default function Sum(props) {
   
-  numbers = [10,24]
+  const array = props.numbers
   
   
     return (
         
           <div>
-            <h3> The sum is: {numbers.reduce((a,b)=> a = a+b) }</h3>
+            <h3> The sum is: {array.reduce((a,b)=> a = a+b) }</h3>
             
            
           </div>
