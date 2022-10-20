@@ -20,10 +20,10 @@ class App extends React.Component {
           <option value='en'>English</option>
           <option value='it'>Italian</option>
         </select>
-        <LanguageContext value={this.state.language}>
+        {/* <LanguageContext value={this.state.language}>
           <DisplayLanguage/>
 
-        </LanguageContext>
+        </LanguageContext> */}
         
       </div>
     );
