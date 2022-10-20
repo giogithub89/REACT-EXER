@@ -1,19 +1,20 @@
 import React from 'react'
-import Container from './Container'
+
 
 
 
 export default function Welcome() {
+  const a = 10;
+  const b = 22;
+  
   
     return (
-        <Container title={'Container Ttile'} >
+        
           <div>
+            <h3> The sum is: {(a+b) }</h3>
            
           </div>
           
-          
-        
-        </Container>
       )
   
 }
