@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function Login() {
+function Log() {
    
     const [data, setData] = useState({
       username: '',
@@ -38,7 +38,7 @@ function Login() {
     
 }
 
-export default Login
+export default Log
 
 
 
