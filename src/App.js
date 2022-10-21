@@ -1,12 +1,12 @@
 
 // import './App.css';
 
-import Login from "./Login";
+import Log from "./Log";
 
 function App() {
   return (
     <div className="form">
-      <Login/>
+      <Log/>
       
      
     </div>

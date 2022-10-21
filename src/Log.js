@@ -3,43 +3,35 @@ import { useState } from "react";
 
 function Login() {
    
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [checkbox, setCheckbox] = useState(false);
+    const [data, setData] = useState({
+      username: '',
+      password:'',
+      checkbox: false
+    });
+    
 
     function handleInputName(event){
-      const value = event.target.username
-      setUsername({ value: username
+      const {name, value, type, checked} = event.target
+      setData({
+        [name]: type === 'checkbox' ? checked : value
       })
-
     }
 
-    function handlePass(event){
-      const value = event.target.password
-      setPassword({ value: password
-      })
-
-    }
-    function handleCheck(event){
-      const value = event.target.checkbox
-      setCheckbox({ value: checkbox
-      })
-
-    }
+  
     
         return (
           <div>
-            <Welcome username={username} />
+            {/* <Welcome username={username} /> */}
             <div className="field">
               <label for="username">Username</label>
               <input
                 name="username"
-                value={username}
+                value={data.username}
                 onChange={handleInputName}
               />
               <label for="password">Password</label>
-              <input name="password"  type="password" value={password} onChange={handlePass}/>
-              <input name="checkbox" type='checkbox' value={checkbox} onChange={handleCheck}/>
+              <input name="password"  type="password" value={data.password} onChange={handleInputName}/>
+              <input  type='checkbox' checked={data.checkbox} onChange={handleInputName}/>
             </div>
           </div>
         );
@@ -50,15 +42,15 @@ export default Login
 
 
 
-class  Welcome extends React.Component {
-  render(){
-    return (
-        <div>
-            <h2>
-                Welcome, {this.props.username}
-            </h2>
+// class  Welcome extends React.Component {
+//   render(){
+//     return (
+//         <div>
+//             <h2>
+//                 Welcome, {this.props.username}
+//             </h2>
     
-        </div>
-      )
-  }
-}
+//         </div>
+//       )
+//   }
+// }
