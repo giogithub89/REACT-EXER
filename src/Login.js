@@ -6,7 +6,8 @@ class Login extends React.Component {
         username: "",
         password:"",
         checkbox: false,
-        name: ""
+        disabled: true,
+        
     }
     handleInput = (event)=>{
         const name = event.target.name
@@ -17,15 +18,16 @@ class Login extends React.Component {
 
     }
     onLogin = (event) =>{
-        //const clicked = event.target.clicked
+        const value = event.target.disable
         this.setState({
-            name:event.target.value
+            disabled: value
         })
 
     }
     reset = ()=> {
       this.setState({
-        username:'', password:'', checked:false
+        username:'', password:'', checkbox: false
+        
       })
 
     }
@@ -53,13 +55,13 @@ class Login extends React.Component {
               />
               <label>Remember me</label>
               <input
-                name="checked"
+                name="checkbox"
                 type="checkbox"
                 
                 value={this.state.checked}
                 onChange={this.handleInput}
               />
-              <button disabled={!this.state.name} onClick={this.onLogin} className="login_btn">Login</button>
+              <button disabled={!this.state.username || !this.state.password} onClick={this.onLogin} className="login_btn">Login</button>
               <button onClick={this.reset} className="reset_btn">Reset</button>
             </div>
           </div>

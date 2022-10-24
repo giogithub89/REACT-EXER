@@ -5,7 +5,7 @@
 .field{
     display: flex;
     flex-direction: column;
-    background-color: aquamarine;
+    border: 1px solid black;
     width: 60%;
     font-size: 18px;
 }
@@ -13,8 +13,8 @@
     margin-bottom: 10px;
 }
 .login_btn{
-    background-color: blueviolet;
-    color: aliceblue;
+    
+    
     border-radius: 5px;
     box-shadow: none;
     border: none;
