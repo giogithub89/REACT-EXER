@@ -12,11 +12,11 @@ export class TodoList extends React.Component {
     this.setState((state) => {
 			return {
 				todos: [...state.todos, todo],
-        todo:''
+        
 			}
 		})
   };
-  reset(){
+  reset = () => {
     this.setState(() => { 
       console.log('reset')
       return{
