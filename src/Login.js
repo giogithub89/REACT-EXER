@@ -5,16 +5,29 @@ class Login extends React.Component {
     state = {
         username: "",
         password:"",
-        checkbox: false
+        checkbox: false,
+        disable: true
     }
     handleInput = (event)=>{
         const name = event.target.name
         const value = event.target.value
         const type = event.target.type
         const checked = event.target.checked
+        //const disable = event.target.disable
+
+
         this.setState({[name] : type === 'checkbox' ? checked : value })
+        
 
     }
+    onLogin = (event) => {
+      const value = event.target.disabled
+
+      this.setState(() => { 
+        return { disable: value}})
+
+    }
+
     render(){
         return (
           <div>
@@ -39,6 +52,8 @@ class Login extends React.Component {
                 value={this.state.checked}
                 onChange={this.handleInput}
               />
+              <button onClick={this.onLogin} disabled={!this.state.username || 
+                !this.state.password}>LOGIN</button>
             </div>
           </div>
         );

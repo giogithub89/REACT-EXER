@@ -1,17 +1,21 @@
 *{
     padding: 2%;
 }
-.form{
+/* .form{
     border: 1px solid gray;
-    width: 50%;
     height: 50vh;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
     
    
-}
+} */
 .field{
+    border: 1px solid gray;
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    
 }
 .field input{
     margin-bottom: 10px;
