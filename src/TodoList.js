@@ -3,6 +3,7 @@ import React from 'react'
 export class TodoList extends React.Component {
   state = {
     todos: [],
+    
   };
 
   handleAddTask = (event) => {
@@ -12,20 +13,18 @@ export class TodoList extends React.Component {
     this.setState((state) => {
 			return {
 				todos: [...state.todos, todo],
-        //[todo]:''
 			}
 		})
   };
-  //  componentDidUpdate(event){
-  //   const todo = event.target.elements.todo.value;
+   componentDidUpdate(){
+    
+    this.setState(() => {
+			return {
+        todo:''
+			} 
 
-  //   this.setState((state) => {
-	// 		return {
-  //       [todo]:''
-	// 		} 
-
-  //  })
-  // }
+   })
+  }
   
 
   render() {
@@ -33,7 +32,7 @@ export class TodoList extends React.Component {
       <div>
 
       <form onSubmit={this.handleAddTask}>
-        <input data-testid="todo-input" name='todo'></input>
+        <input data-testid="todo-input" name='todo' value={this.state.todo}></input>
         <button type='submit'>Add Task</button>
         
       </form>
