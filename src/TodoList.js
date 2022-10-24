@@ -12,10 +12,20 @@ export class TodoList extends React.Component {
     this.setState((state) => {
 			return {
 				todos: [...state.todos, todo],
-        todo:''
+        //[todo]:''
 			}
 		})
   };
+  //  componentDidUpdate(event){
+  //   const todo = event.target.elements.todo.value;
+
+  //   this.setState((state) => {
+	// 		return {
+  //       [todo]:''
+	// 		} 
+
+  //  })
+  // }
   
 
   render() {
