@@ -1,11 +1,13 @@
-
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Welcome from './Welcome';
+import React from 'react';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Routes>
+      <Route path='/' element= {<Welcome/> }/>
+    </Routes>
   );
 }
 
