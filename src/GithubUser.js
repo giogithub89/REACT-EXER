@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react'
 function GithubUser({username}) {
     const [data, setData] = useState(null)
 
-    // const [error, setError] = useState(null)
+     const [error, setError] = useState(null)
 
     useEffect(() => {
         // setError(null)
         fetch(`https://api.github.com/users/${username}`)
         .then(respone =>{
             if(respone.status !== 200){
-                // setError(new Error('user not found'))
+                setError(new Error('user not found'))
             }
             return respone.json()
         })
@@ -19,7 +19,7 @@ function GithubUser({username}) {
             setData(json)
         })
         .catch((error) =>{
-            // setError(error)
+            setError(error)
         })
     }, [username] )
 
@@ -27,6 +27,7 @@ function GithubUser({username}) {
   return (
     <div>
 
+        {error && <h1>{error.message}</h1>}
         {data && <h1>{data.name}</h1>}
         {/* <p>Followers: {data.followers}</p>
         <p>Repos: {data.public_repos}</p> */}

@@ -4,24 +4,30 @@ import { useState } from 'react'
 
 function GithubUserList() {
     const [userList, setUserList] = useState({user: []})
-    const [data, setData] = useState({username:''})
+    //const [data, setData] = useState({username:''})
 
     function findUser(event){
-        //const value = event.target.username
+        const value = event.target.elements.username.value
         event.preventDefault();
-        return setUserList({...userList, newUser: event.current})
+        return setUserList({...userList, value})
 
     }
-    function getUsername(event){
-        const username  = event.data
+    // function getUsername(event){
+    //     const username  = event.data
         
-        setData({...userList, newUser: username})
+    //     setData({...userList, newUser: username})
+    // }
+    function message(event){
+        const value = event.target.elements.username.value
+        console.log(value)
     }
 
   return (
     <div>
-        <input placeholder='Enter a username' value={data.username} onChange={getUsername}></input>
-        <button onClick={findUser}>Find User</button>
+        <form onSubmit={findUser}>
+        <input placeholder='Enter a username' data-testid="username-input" name='username' ></input>
+        <button type='submit' onClick={message}>Find User</button>
+        </form>
 
         <ul>{userList.user.map((item, index) =>
             <li key={index}>
