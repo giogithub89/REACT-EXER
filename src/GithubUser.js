@@ -6,7 +6,7 @@ function GithubUser({username}) {
      const [error, setError] = useState(null)
 
     useEffect(() => {
-        // setError(null)
+         setError(null)
         fetch(`https://api.github.com/users/${username}`)
         .then(respone =>{
             if(respone.status !== 200){
