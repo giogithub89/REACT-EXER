@@ -1,10 +1,13 @@
 import React from "react";
-import GithubUser from "./GithubUser";
+
+import GithubUserList from "./GithubUserList";
 
 function App() {
   return (
     <div className="App">
-      <GithubUser username="giogithub89"/>
+      {/* <GithubUser username="giogithub89"/> */}
+
+      <GithubUserList/>
       
     </div>
   );
