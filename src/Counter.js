@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function Counter() {
+export default function Counter(initialValue) {
+    const [counter, setCounter] = useState(0)
+
+    function increment(){
+        setCounter(counter => counter + 1)
+    }
+
   return (
-    <div>Counter</div>
+    <div>
+        <h1>Counter: {counter} </h1>
+        <button onClick={increment}>Increment</button>
+    </div>
   )
 }
-
-export default Counter
