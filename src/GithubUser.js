@@ -5,19 +5,22 @@ function GithubUser({username}) {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        fetch(`https://api.github.com/users/${username}`)
-        .then(respone =>{
-            if(respone !== 200){
-                setError(new Error)
-            }
-            return respone.json()
-        })
-        .then(json => {
-            console.log(json)
-            setData(json)
-        }).catch(error)
-    }, [username] )
-
+        setError(null)
+       fetch(`https://api.github.com/users/${username}`)
+       .then(respone =>{
+           if(respone.status !== 200){
+               setError(new Error('user not found'))
+           }
+           return respone.json()
+       })
+       .then(json => {
+           console.log(json)
+           setData(json)
+       })
+       .catch((error) =>{
+           setError(error)
+       })
+   }, [username] )
 
   return (
     <div>
