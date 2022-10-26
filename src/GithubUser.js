@@ -8,7 +8,7 @@ function GithubUser({username}) {
         setError(null)
        fetch(`https://api.github.com/users/${username}`)
        .then(respone =>{
-           if(respone.status !== 200){
+           if(respone.status !== 200 || username === null){
                setError(new Error('user not found'))
            }
            return respone.json()
@@ -26,8 +26,8 @@ function GithubUser({username}) {
     <div>
         {error && <h1>{error.message}</h1>}
         {data && <h1>{data.name}</h1>}
-        <p>Followers: {data.followers}</p>
-        <p>Repos: {data.public_repos}</p>
+        {/* <p>Followers: {data.followers}</p>
+        <p>Repos: {data.public_repos}</p> */}
 
     </div>
   )
