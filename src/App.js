@@ -1,4 +1,4 @@
-import { Routes, Route, Link} from 'react-router-dom';
+import { Routes, Route, Link, Outlet} from 'react-router-dom';
 import './App.css';
 import Welcome from './Welcome';
 import React from 'react';
@@ -8,12 +8,13 @@ import NoPage from './NoPage';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Welcome name={"Giovanni"} />} />
-      <Route path="/counter" element={<Counter />} />
-      <Route path="users/:username" element={<ShowGithubUser />} />
-      <Route path="*" element={<NoPage/>} />
-
+    <div>
+      <Routes>
+        <Route path="/" element={<Welcome name={"Giovanni"} />} />
+        <Route path="/counter" element={<Counter />} />
+        <Route path="users/:username" element={<ShowGithubUser />} />
+        <Route path="*" element={<NoPage />} />
+      </Routes>
       <ul>
         <li>
           <Link to="/">Welcome</Link>
@@ -25,7 +26,8 @@ function App() {
           <Link to="users/:username">ShowGithubUser</Link>
         </li>
       </ul>
-    </Routes>
+      <Outlet></Outlet>
+    </div>
   );
 }
 
