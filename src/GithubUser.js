@@ -29,8 +29,8 @@ function GithubUser({username}) {
 
         {error && <h1>{error.message}</h1>}
         {data && <h1>{data.name}</h1>}
-        {/* <p>Followers: {data.followers}</p>
-        <p>Repos: {data.public_repos}</p> */}
+        { data && <p>Followers: {data.followers}</p>}
+        { data && <p>Repos: {data.public_repos}</p>}
 
     </div>
   )

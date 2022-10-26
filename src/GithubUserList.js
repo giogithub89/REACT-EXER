@@ -3,7 +3,7 @@ import GithubUser from './GithubUser'
 import { useState } from 'react'
 
 function GithubUserList() {
-    const [userList, setUserList] = useState([])
+    const [userList, setUserList] = useState(['giogithub89'])
     const [data, setData] = useState('')
 
     function getUsername(event){
@@ -22,7 +22,6 @@ function GithubUserList() {
 
     function addUser(event){
         //const value = event.target.elements.username.value
-       
         event.preventDefault();
         setUserList({...userList, data})
         console.log( 'user' , data)
@@ -45,13 +44,12 @@ function GithubUserList() {
         </form>
 
         <ul>{userList.map((item, index) =>
-            <li key={index}><GithubUser  username={item}/></li>)}
+            <li><GithubUser  key={index} username={item}/></li>)}
             
         </ul>
         
     </div>
 
-// data-testid="username-input" name='username'
   )
 }
 
