@@ -3,7 +3,7 @@ import './App.css';
 import Welcome from './Welcome';
 import React from 'react';
 import Counter from './Counter';
-import { ShowGithubUser } from './ShowGithubUser';
+import ShowGithubUser  from './ShowGithubUser';
 
 function App() {
   return (

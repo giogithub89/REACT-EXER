@@ -1,25 +1,40 @@
-import { useGithubUser } from "./useGithubUser"
-import { useEffect } from "react"
 
-export function GithubUser ({username}){
-    const {userData, fetchUser} = useGithubUser(username)
-    
-    useEffect(()=>{
-        fetchUser(username)
-        }, [username])
-    
-    return (
-        userData?
-        <div className="layoutGit">
-            <div>
-                <img src={userData.avatar_url}/>
-            </div>
-            <div>
-                <h3 className="info">The current user is {userData.name}</h3>
-                <p className="info">Location: {userData.location}</p>
-                <p className="info">Direct url: {userData.html_url}</p>
-            </div>
-        </div>
-        :<div className="error">Retry, something is gone wrong</div>
-    )
+import React, { useEffect, useState } from 'react'
+
+function GithubUser({username}) {
+    const [data, setData] = useState(null)
+
+     const [error, setError] = useState(null)
+
+    useEffect(() => {
+         setError(null)
+        fetch(`https://api.github.com/users/${username}`)
+        .then(respone =>{
+            if(respone.status !== 200){
+                setError(new Error('user not found'))
+            }
+            return respone.json()
+        })
+        .then(json => {
+            console.log(json)
+            setData(json)
+        })
+        .catch((error) =>{
+            setError(error)
+        })
+    }, [username] )
+
+
+  return (
+    <div>
+
+        {error && <h1>{error.message}</h1>}
+        {data && <h1>{data.name}</h1>}
+        { data && <p>Followers: {data.followers}</p>}
+        { data && <p>Repos: {data.public_repos}</p>}
+
+    </div>
+  )
 }
+
+export default GithubUser
