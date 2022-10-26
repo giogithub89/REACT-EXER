@@ -3,39 +3,55 @@ import GithubUser from './GithubUser'
 import { useState } from 'react'
 
 function GithubUserList() {
-    const [userList, setUserList] = useState({user: []})
-    //const [data, setData] = useState({username:''})
+    const [userList, setUserList] = useState([])
+    const [data, setData] = useState('')
 
-    function findUser(event){
-        const value = event.target.elements.username.value
-        event.preventDefault();
-        return setUserList({...userList, value})
-
+    function getUsername(event){
+        const username  = event.target.value
+        setData(username)
+        console.log( username)
     }
-    // function getUsername(event){
-    //     const username  = event.data
-        
-    //     setData({...userList, newUser: username})
+
+    // function findUser(event){
+    //     //const username  = event.target.value
+    //     event.preventDefault();
+    //     setUserList({...userList, data})
+    //     setData('')
+
     // }
-    function message(event){
-        const value = event.target.elements.username.value
-        console.log(value)
+
+    function addUser(event){
+        //const value = event.target.elements.username.value
+       
+        event.preventDefault();
+        setUserList({...userList, data})
+        console.log( 'user' , data)
+        console.log('list', userList)
+        //setData(data)
     }
+
+    // useEffect(()=>{
+    //     // const value = event.target.elements.username.value
+    //     //  GithubUser(username)
+    //     //console.log(userList)
+    // },[userList])
 
   return (
     <div>
-        <form onSubmit={findUser}>
-        <input placeholder='Enter a username' data-testid="username-input" name='username' ></input>
-        <button type='submit' onClick={message}>Find User</button>
+        {/* onSubmit={findUser} */}
+        <form >
+        <input placeholder='Enter a username'  value={data} onChange={getUsername} name='username'></input>
+        <button type='submit' onClick={addUser}>Find User</button>
         </form>
 
-        <ul>{userList.user.map((item, index) =>
-            <li key={index}>
-            <GithubUser username={item}/>
-        </li>)}
+        <ul>{userList.map((item, index) =>
+            <li key={index}><GithubUser  username={item}/></li>)}
+            
         </ul>
         
     </div>
+
+// data-testid="username-input" name='username'
   )
 }
 
