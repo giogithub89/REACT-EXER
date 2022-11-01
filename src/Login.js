@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {createRef} from 'react'
 
 import './form.css'
 
 class Login extends React.Component {
+   _formRef = createRef()
     
     handleInput = (event)=>{
       event.preventDefault();
@@ -12,7 +13,9 @@ class Login extends React.Component {
 
         console.log({username, password, checkbox})
        
-
+    }
+    componentDidMount(){
+      this._formRef.current.focus()
     }
   
     
@@ -20,11 +23,12 @@ class Login extends React.Component {
         return (
           <div>
             
-            <form onSubmit={this.handleInput}>
+            <form  onSubmit={this.handleInput}>
             <div className="field">
               <label for="username">Username</label>
               <input
                 name="username"  
+                ref={this._formRef}
               />
               <label for="username">Password</label>
               <input
