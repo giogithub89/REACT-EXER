@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {createRef} from 'react'
 
 export class TodoList extends React.Component {
+
+  _emptyRef = createRef()
+
   state = {
     todos: [],
   };
@@ -18,12 +21,17 @@ export class TodoList extends React.Component {
   };
   reset = () => {
     this.setState(() => { 
-      console.log('reset')
+      
       return{
         todos:[]
       }
 
     } )
+  }
+
+  componentDidUpdate(){
+    this._emptyRef.current.elements.todo.value = ''
+
   }
 
   handleDeleteItem = (index) => {
@@ -36,7 +44,7 @@ export class TodoList extends React.Component {
     return (
       <div>
 
-      <form onSubmit={this.handleAddTask}>
+      <form onSubmit={this.handleAddTask} ref={this._emptyRef}>
         <input data-testid="todo-input" name='todo'></input>
         <button type='submit'>Add Task</button>
         
