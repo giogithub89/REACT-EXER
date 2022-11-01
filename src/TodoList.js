@@ -26,6 +26,12 @@ export class TodoList extends React.Component {
     } )
   }
 
+  handleDeleteItem = (index) => {
+    let newList = this.state.todos
+    newList.splice(index, 1);
+    this.setState({ items: newList })
+}
+
   render() {
     return (
       <div>
@@ -36,10 +42,12 @@ export class TodoList extends React.Component {
         
         
       </form>
-      <button onClick={this.reset}>Reset</button>
+      <button onClick={this.reset} type="reset" >Reset</button>
       <ul>
         
-        {this.state.todos.map((todo, index) => <li key={index}>{todo}</li>)}
+        {this.state.todos.map((todo, index) => <li key={index}>{todo}
+        <button key={index} onClick={this.handleDeleteItem.bind(this, index)}>Remove item</button>
+        </li>)}
       </ul>
 
       </div>
