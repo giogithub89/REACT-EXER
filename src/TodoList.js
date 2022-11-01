@@ -1,12 +1,13 @@
 import React, {createRef} from 'react'
 
 export class TodoList extends React.Component {
+  _emptyRef = createRef()
+
   state = {
     todos: [],
     
-    
   };
-  _emptyRef = createRef()
+  
 
   handleAddTask = (event) => {
     event.preventDefault();
@@ -16,11 +17,17 @@ export class TodoList extends React.Component {
     this.setState((state) => {
 			return {
 				todos: [...state.todos, todo],
-        // this._emptyRef: ''
+       
         
 			}
 		})
   };
+
+  
+  componentDidUpdate(){
+    this._emptyRef.current.elements.todo.value = ''
+
+  }
     
   
 
@@ -28,9 +35,9 @@ export class TodoList extends React.Component {
     return (
       <div>
 
-      <form onSubmit={this.handleAddTask}>
-        <input data-testid="todo-input" name='todo' value={this.state.todo} ref={this._emptyRef}></input>
-        <button type='submit'>Add Task</button>
+      <form onSubmit={this.handleAddTask} ref={this._emptyRef}>
+        <input data-testid="todo-input" name='todo' value={this.state.todo} ></input>
+        <button type='submit' >Add Task</button>
         
       </form>
       <ul>
