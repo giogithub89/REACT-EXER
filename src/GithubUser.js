@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react'
 import useGithubUser from './useGithubUser'
 
 export function GithubUser({username}) {
-    const [data, error] = useGithubUser(username)
+    const [data, error, onFetch] = useGithubUser(username)
+
+    useEffect(()=>{
+        onFetch(username)
+    },[username])
    
 
   return (

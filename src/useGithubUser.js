@@ -18,11 +18,9 @@ export default function useGithubUser(username) {
         }   
     }
 
-    useEffect(()=>{
-        fetchUser(username)
-    },[username])
+   
 
   return (
-    {data, error}
+    {data, error, onFetch: fetchUser}
   )
 }
