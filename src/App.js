@@ -1,5 +1,5 @@
 import React from "react";
-import GithubUser from "./GithubUser";
+import {GithubUser} from "./GithubUser";
 
 function App() {
   return (
