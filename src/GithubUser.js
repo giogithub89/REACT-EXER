@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import useGithubUser from './useGithubUser'
 
 export function GithubUser({username}) {
-    const [data, error, onFetch] = useGithubUser(username)
+    const [data, error, onFetch, loading] = useGithubUser(username)
 
     useEffect(()=>{
         onFetch(username)
-    },[username])
+    },)
    
 
   return (
     <div>
+         {loading && <h1>Loading...</h1>}
         {error && <h1>{error.message}</h1>}
         {data && <h1>{data.name}</h1>}
        { data && <p>Followers: {data.followers}</p>}
